@@ -1,5 +1,10 @@
 import React from "react";
 
 export default function Dashboard() {
-  return <h1>Dashboard</h1>;
+  return (
+    <div style={{ padding: 40 }}>
+      <h1>Dashboard</h1>
+      <p>Login fake funcionando ✅</p>
+    </div>
+  );
 }
