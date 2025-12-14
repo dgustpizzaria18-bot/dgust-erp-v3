@@ -5,7 +5,6 @@ export default function Login() {
   const navigate = useNavigate();
 
   function handleLogin() {
-    // login fake por enquanto
     localStorage.setItem("auth", "true");
     navigate("/dashboard");
   }
@@ -13,10 +12,7 @@ export default function Login() {
   return (
     <div style={{ padding: 40 }}>
       <h1>LOGIN D'GUST ERP</h1>
-
-      <button onClick={handleLogin}>
-        Entrar
-      </button>
+      <button onClick={handleLogin}>Entrar</button>
     </div>
   );
 }
