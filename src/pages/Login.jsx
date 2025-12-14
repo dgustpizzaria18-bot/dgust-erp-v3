@@ -1,19 +1,10 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 
-export default function Login() {
-  const navigate = useNavigate();
-
-  function handleLogin() {
-    // LOGIN FAKE COM PERSISTÊNCIA
-    localStorage.setItem("isAuth", "true");
-    navigate("/dashboard");
-  }
-
+export default function Login({ onLogin }) {
   return (
     <div style={{ padding: 40 }}>
       <h1>LOGIN D'GUST ERP</h1>
-      <button onClick={handleLogin}>Entrar</button>
+      <button onClick={onLogin}>Entrar</button>
     </div>
   );
 }
