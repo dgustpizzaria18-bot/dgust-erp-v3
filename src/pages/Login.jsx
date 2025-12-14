@@ -25,31 +25,33 @@ export default function Login() {
   }
 
   return (
-    <div style={{ padding: 40 }}>
-      <h1>D'GUST ERP</h1>
-      <p>Login</p>
+    <div className="login-container">
+      <div className="login-card">
+        <h1>D'GUST ERP</h1>
+        <p>Acesso ao sistema</p>
 
-      <form onSubmit={handleLogin}>
-        <input
-          type="email"
-          placeholder="E-mail"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <br /><br />
+        <form onSubmit={handleLogin}>
+          <input
+            type="email"
+            placeholder="E-mail"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
 
-        <input
-          type="password"
-          placeholder="Senha"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <br /><br />
+          <input
+            type="password"
+            placeholder="Senha"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
 
-        <button type="submit">Entrar</button>
+          <button type="submit">Entrar</button>
 
-        {error && <p style={{ color: "red" }}>{error}</p>}
-      </form>
+          {error && <div className="login-error">{error}</div>}
+        </form>
+      </div>
     </div>
   );
 }
