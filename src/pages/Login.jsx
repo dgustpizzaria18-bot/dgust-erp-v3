@@ -5,7 +5,7 @@ export default function Login() {
 
   return (
     <div style={{ padding: 40 }}>
-      <h1>D´GUST ERP</h1>
+      <h1>D'GUST ERP</h1>
       <p>Tela de Login</p>
 
       <button onClick={() => navigate("/dashboard")}>
