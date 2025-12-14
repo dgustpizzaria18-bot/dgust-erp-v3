@@ -1,3 +1,4 @@
+import React from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function Login() {
@@ -7,13 +8,9 @@ export default function Login() {
     <div style={{ padding: 40 }}>
       <h1>LOGIN D'GUST ERP</h1>
 
-      <button
-        onClick={() => navigate("/dashboard")}
-        style={{ padding: 10, marginTop: 20 }}
-      >
+      <button onClick={() => navigate("/dashboard")}>
         Entrar
       </button>
     </div>
   );
 }
-
