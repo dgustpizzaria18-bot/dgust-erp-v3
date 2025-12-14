@@ -1,25 +1,12 @@
-import { Routes, Route, Navigate } from "react-router-dom";
-import Login from "../pages/Login.jsx";
-import Dashboard from "../pages/Dashboard.jsx";
-import { supabase } from "../services/supabaseClient";
+import { Routes, Route } from "react-router-dom";
+import Login from "./pages/Login";
+import Dashboard from "./pages/Dashboard";
 
-function PrivateRoute({ children }) {
-  const session = supabase.auth.getSession();
-  return session ? children : <Navigate to="/login" />;
-}
-
-export default function AppRoutes() {
+export default function RoutesApp() {
   return (
     <Routes>
-      <Route path="/login" element={<Login />} />
-      <Route
-        path="/"
-        element={
-          <PrivateRoute>
-            <Dashboard />
-          </PrivateRoute>
-        }
-      />
+      <Route path="/" element={<Login />} />
+      <Route path="/dashboard" element={<Dashboard />} />
     </Routes>
   );
 }
