@@ -5,7 +5,8 @@ export default function Login() {
   const navigate = useNavigate();
 
   function handleLogin() {
-    // LOGIN FAKE
+    // LOGIN FAKE COM PERSISTÊNCIA
+    localStorage.setItem("isAuth", "true");
     navigate("/dashboard");
   }
 
@@ -16,3 +17,4 @@ export default function Login() {
     </div>
   );
 }
+
