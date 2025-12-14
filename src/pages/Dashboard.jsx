@@ -1,18 +1,11 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import DashboardLayout from "../layouts/DashboardLayout";
 
 export default function Dashboard() {
-  const navigate = useNavigate();
-
-  function handleLogout() {
-    localStorage.removeItem("auth");
-    navigate("/login");
-  }
-
   return (
-    <div style={{ padding: 40 }}>
+    <DashboardLayout>
       <h1>Dashboard</h1>
-      <button onClick={handleLogout}>Sair</button>
-    </div>
+      <p>Bem-vindo ao sistema D'GUST ERP.</p>
+    </DashboardLayout>
   );
 }
