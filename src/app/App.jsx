@@ -1,31 +1,25 @@
-import React from "react";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-
-import Login from "./pages/Login";
-import Dashboard from "./pages/Dashboard";
-
-function PrivateRoute({ children }) {
-  const isAuth = localStorage.getItem("isAuth") === "true";
-  return isAuth ? children : <Navigate to="/login" />;
-}
+import React, { useState } from "react";
+import Login from "../pages/Login";
+import Dashboard from "../pages/Dashboard";
 
 export default function App() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Navigate to="/login" />} />
+  const [isLogged, setIsLogged] = useState(
+    localStorage.getItem("logged") === "true"
+  );
 
-        <Route path="/login" element={<Login />} />
+  function handleLogin() {
+    localStorage.setItem("logged", "true");
+    setIsLogged(true);
+  }
 
-        <Route
-          path="/dashboard"
-          element={
-            <PrivateRoute>
-              <Dashboard />
-            </PrivateRoute>
-          }
-        />
-      </Routes>
-    </BrowserRouter>
+  function handleLogout() {
+    localStorage.removeItem("logged");
+    setIsLogged(false);
+  }
+
+  return isLogged ? (
+    <Dashboard onLogout={handleLogout} />
+  ) : (
+    <Login onLogin={handleLogin} />
   );
 }
