@@ -12,7 +12,6 @@ export default function Login() {
   return (
     <div style={{ padding: 40 }}>
       <h1>LOGIN D'GUST ERP</h1>
-
       <button onClick={handleLogin}>Entrar</button>
     </div>
   );
