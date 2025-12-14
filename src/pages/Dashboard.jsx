@@ -10,11 +10,21 @@ export default function Dashboard() {
   }
 
   return (
-    <div style={{ padding: 40 }}>
+    <div style={{ padding: "40px" }}>
       <h1>Dashboard</h1>
+
       <p>Usuário autenticado (fake) ✅</p>
 
-      <button onClick={handleLogout}>Sair</button>
+      <button
+        onClick={handleLogout}
+        style={{
+          marginTop: "20px",
+          padding: "10px 20px",
+          cursor: "pointer",
+        }}
+      >
+        Sair
+      </button>
     </div>
   );
 }
