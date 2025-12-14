@@ -1,8 +1,8 @@
+import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Login from "./pages/Login";
-import Dashboard from "./pages/Dashboard";
-import Produtos from "./pages/Produtos";
-import Pedidos from "./pages/Pedidos";
+
+import Login from "../pages/Login";
+import Dashboard from "../pages/Dashboard";
 
 export default function App() {
   return (
@@ -10,8 +10,6 @@ export default function App() {
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/produtos" element={<Produtos />} />
-        <Route path="/pedidos" element={<Pedidos />} />
       </Routes>
     </BrowserRouter>
   );
