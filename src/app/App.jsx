@@ -1,5 +1,7 @@
-import RoutesApp from "./routes";
-
 export default function App() {
-  return <RoutesApp />;
+  return (
+    <div style={{ padding: 40 }}>
+      <h1>APP CARREGOU</h1>
+    </div>
+  );
 }
