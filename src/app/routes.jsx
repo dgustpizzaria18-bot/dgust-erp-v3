@@ -1,9 +1,8 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { supabase } from "../services/supabaseClient";
-
 import Login from "../pages/Login";
 import Dashboard from "../pages/Dashboard";
+import { supabase } from "../services/supabaseClient";
 
 function PrivateRoute({ children }) {
   const [loading, setLoading] = useState(true);
@@ -16,9 +15,11 @@ function PrivateRoute({ children }) {
     });
   }, []);
 
-  if (loading) return <p>Carregando...</p>;
+  if (loading) {
+    return <div style={{ padding: 40 }}>Carregando...</div>;
+  }
 
-  return session ? children : <Navigate to="/login" replace />;
+  return session ? children : <Navigate to="/login" />;
 }
 
 export default function AppRoutes() {
