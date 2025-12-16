@@ -1,19 +1,31 @@
-import React from "react";
+import { supabase } from "../services/supabaseClient";
+import { useNavigate } from "react-router-dom";
 
 export default function Header() {
+  const navigate = useNavigate();
+
+  async function handleLogout() {
+    await supabase.auth.signOut();
+    navigate("/login", { replace: true });
+  }
+
   return (
     <header
       style={{
         height: 60,
-        background: "#1f2937",
-        color: "#fff",
+        background: "#f5f5f5",
         display: "flex",
         alignItems: "center",
-        padding: "0 20px",
-        fontWeight: "bold",
+        justifyContent: "space-between",
+        padding: "0 24px",
+        borderBottom: "1px solid #ddd",
       }}
     >
-      D'GUST ERP
+      <strong>Painel</strong>
+
+      <button onClick={handleLogout}>
+        Sair
+      </button>
     </header>
   );
 }
