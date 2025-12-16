@@ -10,12 +10,11 @@ export default function Header() {
   }
 
   return (
-    <header className="h-14 bg-white border-b flex items-center justify-between px-6">
-      <span className="font-semibold">Painel Administrativo</span>
-
+    <header className="flex justify-between items-center bg-white p-4 shadow">
+      <h1 className="font-semibold">Painel Administrativo</h1>
       <button
         onClick={handleLogout}
-        className="text-sm text-red-600 hover:underline"
+        className="text-red-600 text-sm"
       >
         Sair
       </button>
