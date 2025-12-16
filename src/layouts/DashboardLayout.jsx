@@ -3,13 +3,13 @@ import Header from "../components/Header";
 
 export default function DashboardLayout({ children }) {
   return (
-    <div style={{ display: "flex", minHeight: "100vh" }}>
+    <div className="flex min-h-screen bg-gray-100">
       <Sidebar />
 
-      <div style={{ flex: 1 }}>
+      <div className="flex flex-col flex-1">
         <Header />
 
-        <main style={{ padding: 24 }}>
+        <main className="p-6">
           {children}
         </main>
       </div>
