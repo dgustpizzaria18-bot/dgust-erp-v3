@@ -1,18 +1,10 @@
-import { supabase } from "../services/supabaseClient";
-import { useNavigate } from "react-router-dom";
+import DashboardLayout from "../layouts/DashboardLayout";
 
 export default function Dashboard() {
-  const navigate = useNavigate();
-
-  async function handleLogout() {
-    await supabase.auth.signOut();
-    navigate("/login", { replace: true });
-  }
-
   return (
-    <div style={{ padding: 40 }}>
+    <DashboardLayout>
       <h2>Dashboard</h2>
-      <button onClick={handleLogout}>Sair</button>
-    </div>
+      <p>Bem-vindo ao D'GUST ERP</p>
+    </DashboardLayout>
   );
 }
