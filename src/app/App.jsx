@@ -1,7 +1,6 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import Login from "../pages/Login";
-import Dashboard from "../pages/Dashboard";
-import Layout from "./Layout";
+import Login from "./pages/Login";
+import Dashboard from "./pages/Dashboard";
 
 function PrivateRoute({ children }) {
   const isAuth = localStorage.getItem("auth") === "true";
@@ -15,15 +14,15 @@ export default function App() {
         <Route path="/login" element={<Login />} />
 
         <Route
+          path="/dashboard"
           element={
             <PrivateRoute>
-              <Layout />
+              <Dashboard />
             </PrivateRoute>
           }
-        >
-          <Route path="/dashboard" element={<Dashboard />} />
-        </Route>
+        />
 
+        {/* rota padrão */}
         <Route path="*" element={<Navigate to="/login" />} />
       </Routes>
     </BrowserRouter>
