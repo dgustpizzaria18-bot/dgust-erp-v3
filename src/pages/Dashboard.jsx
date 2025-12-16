@@ -4,6 +4,8 @@ import KpiCard from "../components/KpiCard";
 import ProdutosPorCategoriaChart from "../components/ProdutosPorCategoriaChart";
 import ProdutosAtivosChart from "../components/ProdutosAtivosChart";
 import { getDashboardKpis } from "../services/dashboardService";
+import MovimentacaoEstoqueChart from "../components/MovimentacaoEstoqueChart";
+import { getMovimentacaoEstoque } from "../services/estoqueChartsService";
 import {
   getProdutosPorCategoria,
   getProdutosAtivosInativos,
