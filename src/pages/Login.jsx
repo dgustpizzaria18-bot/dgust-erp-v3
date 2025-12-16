@@ -1,8 +1,8 @@
-export default function Login({ onLogin }) {
+export default function Login() {
   return (
-    <div>
-      <h1>LOGIN D'GUST ERP</h1>
-      <button onClick={onLogin}>Entrar</button>
+    <div style={{ padding: 40 }}>
+      <h2>Login</h2>
+      <p>Página de login (sem autenticação ainda).</p>
     </div>
   );
 }
