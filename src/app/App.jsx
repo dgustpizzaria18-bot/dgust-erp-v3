@@ -1,13 +1,10 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import Layout from "./Layout";
 import Login from "../pages/Login";
 import Dashboard from "../pages/Dashboard";
-import Pedidos from "../pages/Pedidos";
-import Clientes from "../pages/Clientes";
-import Produtos from "../pages/Produtos";
+import Layout from "./Layout";
 
 function PrivateRoute({ children }) {
-  const isAuth = localStorage.getItem("auth");
+  const isAuth = localStorage.getItem("auth") === "true";
   return isAuth ? children : <Navigate to="/login" />;
 }
 
@@ -18,19 +15,13 @@ export default function App() {
         <Route path="/login" element={<Login />} />
 
         <Route
-          path="/"
           element={
             <PrivateRoute>
               <Layout />
             </PrivateRoute>
           }
         >
-          <Route path="dashboard" element={<Dashboard />} />
-          <Route path="pedidos" element={<Pedidos />} />
-          <Route path="clientes" element={<Clientes />} />
-          <Route path="produtos" element={<Produtos />} />
-
-          <Route index element={<Navigate to="/dashboard" />} />
+          <Route path="/dashboard" element={<Dashboard />} />
         </Route>
 
         <Route path="*" element={<Navigate to="/login" />} />
