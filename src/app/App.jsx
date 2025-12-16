@@ -1,42 +1,55 @@
-import { useState } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+
 import Login from "../pages/Login";
 import Dashboard from "../pages/Dashboard";
 
 export default function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isAuth, setIsAuth] = useState(false);
+
+  useEffect(() => {
+    const auth = localStorage.getItem("auth");
+    setIsAuth(auth === "true");
+  }, []);
+
+  function handleLogin() {
+    localStorage.setItem("auth", "true");
+    setIsAuth(true);
+  }
+
+  function handleLogout() {
+    localStorage.removeItem("auth");
+    setIsAuth(false);
+  }
 
   return (
     <BrowserRouter>
       <Routes>
-        {/* LOGIN */}
         <Route
           path="/login"
           element={
-            isAuthenticated ? (
+            isAuth ? (
               <Navigate to="/dashboard" />
             ) : (
-              <Login onLogin={() => setIsAuthenticated(true)} />
+              <Login onLogin={handleLogin} />
             )
           }
         />
 
-        {/* DASHBOARD PROTEGIDO */}
         <Route
           path="/dashboard"
           element={
-            isAuthenticated ? (
-              <Dashboard onLogout={() => setIsAuthenticated(false)} />
+            isAuth ? (
+              <Dashboard onLogout={handleLogout} />
             ) : (
               <Navigate to="/login" />
             )
           }
         />
 
-        {/* ROTA PADRÃO */}
         <Route
           path="*"
-          element={<Navigate to={isAuthenticated ? "/dashboard" : "/login"} />}
+          element={<Navigate to={isAuth ? "/dashboard" : "/login"} />}
         />
       </Routes>
     </BrowserRouter>
