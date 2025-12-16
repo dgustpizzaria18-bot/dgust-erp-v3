@@ -5,7 +5,7 @@ import Dashboard from "../pages/Dashboard";
 import Produtos from "../pages/Produtos";
 import Clientes from "../pages/Clientes";
 import Pedidos from "../pages/Pedidos";
-import Layout from "../layouts/Layout";
+import Layout from "./Layout";
 import ProtectedRoute from "./ProtectedRoute";
 
 export default function App() {
