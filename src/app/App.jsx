@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import Layout from "./Layout";
 import Login from "../pages/Login";
 import Dashboard from "../pages/Dashboard";
 
@@ -14,13 +15,16 @@ export default function App() {
         <Route path="/login" element={<Login />} />
 
         <Route
-          path="/dashboard"
+          path="/"
           element={
             <PrivateRoute>
-              <Dashboard />
+              <Layout />
             </PrivateRoute>
           }
-        />
+        >
+          <Route path="dashboard" element={<Dashboard />} />
+          <Route index element={<Navigate to="/dashboard" />} />
+        </Route>
 
         <Route path="*" element={<Navigate to="/login" />} />
       </Routes>
