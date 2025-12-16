@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 
 export default function Sidebar() {
@@ -6,14 +5,28 @@ export default function Sidebar() {
     <aside
       style={{
         width: 220,
-        background: "#f3f4f6",
+        background: "#111",
+        color: "#fff",
         padding: 20,
-        borderRight: "1px solid #e5e7eb",
       }}
     >
-      <p><Link to="/dashboard">📊 Dashboard</Link></p>
-      <p><Link to="/produtos">📦 Produtos</Link></p>
-      <p><Link to="/pedidos">🧾 Pedidos</Link></p>
+      <h3>D'GUST ERP</h3>
+
+      <nav style={{ marginTop: 30 }}>
+        <ul style={{ listStyle: "none", padding: 0 }}>
+          <li><Link to="/dashboard" style={link}>Dashboard</Link></li>
+          <li><Link to="/produtos" style={link}>Produtos</Link></li>
+          <li><Link to="/clientes" style={link}>Clientes</Link></li>
+          <li><Link to="/pedidos" style={link}>Pedidos</Link></li>
+        </ul>
+      </nav>
     </aside>
   );
 }
+
+const link = {
+  display: "block",
+  padding: "10px 0",
+  color: "#fff",
+  textDecoration: "none",
+};
