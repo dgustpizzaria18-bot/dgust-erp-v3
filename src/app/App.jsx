@@ -1,26 +1,18 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import Login from "../pages/Login";
 import Dashboard from "../pages/Dashboard";
 
 export default function App() {
-  const [isAuth, setIsAuth] = useState(false);
+  const [isAuth, setIsAuth] = useState(null);
 
   useEffect(() => {
     const auth = localStorage.getItem("auth");
     setIsAuth(auth === "true");
   }, []);
 
-  function handleLogin() {
-    localStorage.setItem("auth", "true");
-    setIsAuth(true);
-  }
-
-  function handleLogout() {
-    localStorage.removeItem("auth");
-    setIsAuth(false);
-  }
+  if (isAuth === null) return null; // evita flicker
 
   return (
     <BrowserRouter>
@@ -29,9 +21,14 @@ export default function App() {
           path="/login"
           element={
             isAuth ? (
-              <Navigate to="/dashboard" />
+              <Navigate to="/dashboard" replace />
             ) : (
-              <Login onLogin={handleLogin} />
+              <Login
+                onLogin={() => {
+                  localStorage.setItem("auth", "true");
+                  setIsAuth(true);
+                }}
+              />
             )
           }
         />
@@ -40,16 +37,21 @@ export default function App() {
           path="/dashboard"
           element={
             isAuth ? (
-              <Dashboard onLogout={handleLogout} />
+              <Dashboard
+                onLogout={() => {
+                  localStorage.removeItem("auth");
+                  setIsAuth(false);
+                }}
+              />
             ) : (
-              <Navigate to="/login" />
+              <Navigate to="/login" replace />
             )
           }
         />
 
         <Route
           path="*"
-          element={<Navigate to={isAuth ? "/dashboard" : "/login"} />}
+          element={<Navigate to={isAuth ? "/dashboard" : "/login"} replace />}
         />
       </Routes>
     </BrowserRouter>
