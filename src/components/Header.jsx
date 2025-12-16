@@ -10,20 +10,13 @@ export default function Header() {
   }
 
   return (
-    <header
-      style={{
-        height: 60,
-        background: "#f5f5f5",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "space-between",
-        padding: "0 24px",
-        borderBottom: "1px solid #ddd",
-      }}
-    >
-      <strong>Painel</strong>
+    <header className="h-14 bg-white border-b flex items-center justify-between px-6">
+      <span className="font-semibold">Painel Administrativo</span>
 
-      <button onClick={handleLogout}>
+      <button
+        onClick={handleLogout}
+        className="text-sm text-red-600 hover:underline"
+      >
         Sair
       </button>
     </header>
