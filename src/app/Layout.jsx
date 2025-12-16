@@ -32,9 +32,11 @@ export default function Layout() {
 
         {/* Conteúdo das páginas */}
         <main className="flex-1 p-6">
+          {/* Aqui está o Outlet que vai renderizar o conteúdo de Dashboard, Produtos, etc */}
           <Outlet />
         </main>
       </div>
     </div>
   );
 }
+
