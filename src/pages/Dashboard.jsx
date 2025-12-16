@@ -1,5 +1,3 @@
-import React from "react";
-import DashboardLayout from "../layouts/DashboardLayout";
 import { useNavigate } from "react-router-dom";
 
 export default function Dashboard() {
@@ -11,16 +9,14 @@ export default function Dashboard() {
   }
 
   return (
-    <DashboardLayout>
+    <div style={{ padding: 20 }}>
       <h1>Dashboard</h1>
-      <p>Bem-vindo ao sistema D'GUST ERP.</p>
 
-      <button
-        onClick={handleLogout}
-        style={{ marginTop: 20 }}
-      >
+      <p><strong>Usuário:</strong> Admin (fake)</p>
+
+      <button onClick={handleLogout}>
         Sair
       </button>
-    </DashboardLayout>
+    </div>
   );
 }
