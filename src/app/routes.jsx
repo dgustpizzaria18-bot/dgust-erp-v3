@@ -3,32 +3,29 @@ import Login from "../pages/Login";
 import Dashboard from "../pages/Dashboard";
 import Produtos from "../pages/Produtos";
 import ProtectedRoute from "./ProtectedRoute";
+import Layout from "../app/Layout";
 
 export default function RoutesApp() {
   return (
     <Routes>
+      {/* Pública */}
       <Route path="/login" element={<Login />} />
 
+      {/* Privada com Layout */}
       <Route
-        path="/dashboard"
         element={
           <ProtectedRoute>
-            <Dashboard />
+            <Layout />
           </ProtectedRoute>
         }
-      />
+      >
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/produtos" element={<Produtos />} />
+      </Route>
 
-      <Route
-        path="/produtos"
-        element={
-          <ProtectedRoute>
-            <Produtos />
-          </ProtectedRoute>
-        }
-      />
-
-      <Route path="/" element={<Navigate to="/dashboard" />} />
-      <Route path="*" element={<Navigate to="/dashboard" />} />
+      {/* Redirects */}
+      <Route path="/" element={<Navigate to="/dashboard" replace />} />
+      <Route path="*" element={<Navigate to="/dashboard" replace />} />
     </Routes>
   );
 }
