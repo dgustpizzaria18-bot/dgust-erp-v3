@@ -5,14 +5,15 @@ export default function Header() {
     <header
       style={{
         height: 60,
-        background: "#1e1e1e",
+        background: "#1f2937",
         color: "#fff",
         display: "flex",
         alignItems: "center",
         padding: "0 20px",
+        fontWeight: "bold",
       }}
     >
-      <strong>D'GUST ERP</strong>
+      D'GUST ERP
     </header>
   );
 }
