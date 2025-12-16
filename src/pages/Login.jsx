@@ -1,13 +1,21 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-import React from "react";
+export default function Login() {
+  const navigate = useNavigate();
 
-export default function Login({ onLogin }) {
+  function handleLogin() {
+    localStorage.setItem("auth", "true");
+    navigate("/dashboard");
+  }
+
   return (
     <div style={{ padding: 40 }}>
       <h1>LOGIN D'GUST ERP</h1>
-      <button onClick={onLogin}>Entrar</button>
+
+      <button onClick={handleLogin}>
+        Entrar
+      </button>
     </div>
   );
 }
