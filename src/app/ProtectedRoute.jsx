@@ -5,7 +5,11 @@ export default function ProtectedRoute({ children }) {
   const { user, loading } = useAuth();
 
   if (loading) {
-    return <p>Carregando sessão...</p>;
+    return (
+      <div className="p-6 text-gray-500">
+        Carregando sessão...
+      </div>
+    );
   }
 
   if (!user) {
