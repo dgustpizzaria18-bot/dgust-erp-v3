@@ -4,28 +4,23 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Login from "../pages/Login";
 import Dashboard from "../pages/Dashboard";
 
-import React, { useState } from "react";
-import Login from "../pages/Login";
-import Dashboard from "../pages/Dashboard";
-
 export default function App() {
-  const [isLogged, setIsLogged] = useState(
-    localStorage.getItem("logged") === "true"
-  );
+  const isAuth = localStorage.getItem("auth") === "true";
 
-  function handleLogin() {
-    localStorage.setItem("logged", "true");
-    setIsLogged(true);
-  }
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/login" element={<Login />} />
 
-  function handleLogout() {
-    localStorage.removeItem("logged");
-    setIsLogged(false);
-  }
+        <Route
+          path="/dashboard"
+          element={
+            isAuth ? <Dashboard /> : <Navigate to="/login" />
+          }
+        />
 
-  return isLogged ? (
-    <Dashboard onLogout={handleLogout} />
-  ) : (
-    <Login onLogin={handleLogin} />
+        <Route path="*" element={<Navigate to="/login" />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
