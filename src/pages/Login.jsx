@@ -1,21 +1,8 @@
-import { useNavigate } from "react-router-dom";
-
-export default function Login() {
-  const navigate = useNavigate();
-
-  function handleLogin() {
-    // LOGIN FAKE
-    localStorage.setItem("auth", "true");
-    navigate("/dashboard");
-  }
-
+export default function Login({ onLogin }) {
   return (
-    <div style={{ padding: 40 }}>
+    <div>
       <h1>LOGIN D'GUST ERP</h1>
-
-      <button onClick={handleLogin}>
-        Entrar
-      </button>
+      <button onClick={onLogin}>Entrar</button>
     </div>
   );
 }
