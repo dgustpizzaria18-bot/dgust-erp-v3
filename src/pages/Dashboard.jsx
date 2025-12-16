@@ -1,8 +1,8 @@
-export default function Dashboard({ onLogout }) {
+export default function Dashboard() {
   return (
-    <div>
-      <h1>Dashboard</h1>
-      <button onClick={onLogout}>Sair</button>
+    <div style={{ padding: 40 }}>
+      <h2>Dashboard</h2>
+      <p>Área interna (auth virá depois).</p>
     </div>
   );
 }
