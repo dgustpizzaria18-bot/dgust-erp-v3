@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Sidebar() {
   return (
@@ -10,10 +11,9 @@ export default function Sidebar() {
         borderRight: "1px solid #e5e7eb",
       }}
     >
-      <p>📊 Dashboard</p>
-      <p>📦 Produtos</p>
-      <p>🧾 Pedidos</p>
-      <p>⚙️ Configurações</p>
+      <p><Link to="/dashboard">📊 Dashboard</Link></p>
+      <p><Link to="/produtos">📦 Produtos</Link></p>
+      <p><Link to="/pedidos">🧾 Pedidos</Link></p>
     </aside>
   );
 }
