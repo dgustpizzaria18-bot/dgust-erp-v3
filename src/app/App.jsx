@@ -2,6 +2,9 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Layout from "./Layout";
 import Login from "../pages/Login";
 import Dashboard from "../pages/Dashboard";
+import Pedidos from "../pages/Pedidos";
+import Clientes from "../pages/Clientes";
+import Produtos from "../pages/Produtos";
 
 function PrivateRoute({ children }) {
   const isAuth = localStorage.getItem("auth");
@@ -23,6 +26,10 @@ export default function App() {
           }
         >
           <Route path="dashboard" element={<Dashboard />} />
+          <Route path="pedidos" element={<Pedidos />} />
+          <Route path="clientes" element={<Clientes />} />
+          <Route path="produtos" element={<Produtos />} />
+
           <Route index element={<Navigate to="/dashboard" />} />
         </Route>
 
