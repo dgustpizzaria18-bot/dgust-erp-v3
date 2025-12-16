@@ -1,3 +1,9 @@
+import DashboardLayout from "../layouts/DashboardLayout";
+
 export default function Clientes() {
-  return <h1>Clientes</h1>;
+  return (
+    <DashboardLayout>
+      <h2>Clientes</h2>
+    </DashboardLayout>
+  );
 }
