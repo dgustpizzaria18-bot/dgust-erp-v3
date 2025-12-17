@@ -1,9 +1,5 @@
-import DashboardLayout from "../layouts/DashboardLayout";
+import React from "react";
 
 export default function Pedidos() {
-  return (
-    <DashboardLayout>
-      <h2>Pedidos</h2>
-    </DashboardLayout>
-  );
+  return <h2>Pedidos</h2>;
 }
