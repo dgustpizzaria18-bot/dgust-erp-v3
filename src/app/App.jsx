@@ -5,8 +5,8 @@ import Dashboard from "../pages/Dashboard";
 import Produtos from "../pages/Produtos";
 import Clientes from "../pages/Clientes";
 import Pedidos from "../pages/Pedidos";
-import Layout from "../layouts/Layout";
 import ProtectedRoute from "./ProtectedRoute";
+import Layout from "../layout/Layout";
 
 export default function App() {
   return (
@@ -26,7 +26,8 @@ export default function App() {
         <Route path="/pedidos" element={<Pedidos />} />
       </Route>
 
-      <Route path="*" element={<Navigate to="/login" replace />} />
+      <Route path="/" element={<Navigate to="/dashboard" replace />} />
+      <Route path="*" element={<Navigate to="/dashboard" replace />} />
     </Routes>
   );
 }
