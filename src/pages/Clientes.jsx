@@ -1,9 +1,5 @@
-import DashboardLayout from "../layouts/DashboardLayout";
+import React from "react";
 
 export default function Clientes() {
-  return (
-    <DashboardLayout>
-      <h2>Clientes</h2>
-    </DashboardLayout>
-  );
+  return <h2>Clientes</h2>;
 }
