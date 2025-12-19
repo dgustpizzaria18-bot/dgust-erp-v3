@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState } from "react";
+import { TOAST_DURATION } from "../constants";
 
 const ToastContext = createContext();
 
@@ -9,10 +10,10 @@ export function ToastProvider({ children }) {
     const id = Date.now();
     setToasts((prev) => [...prev, { id, message, type }]);
     
-    // Auto-remove after 5 seconds
+    // Auto-remove after configured duration
     setTimeout(() => {
       removeToast(id);
-    }, 5000);
+    }, TOAST_DURATION);
   };
 
   const removeToast = (id) => {

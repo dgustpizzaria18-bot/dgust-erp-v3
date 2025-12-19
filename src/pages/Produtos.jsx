@@ -6,6 +6,7 @@ import {
   toggleProduto,
 } from "../services/produtosService";
 import { useToast } from "../components/Toast";
+import { STOCK_THRESHOLD_CRITICAL } from "../constants";
 
 export default function Produtos() {
   const [produtos, setProdutos] = useState([]);
@@ -146,7 +147,7 @@ export default function Produtos() {
                 <td className="px-6 py-4 whitespace-nowrap">
                   <span
                     className={`${
-                      produto.estoque_atual <= 5
+                      produto.estoque_atual <= STOCK_THRESHOLD_CRITICAL
                         ? "text-red-600 font-semibold"
                         : ""
                     }`}

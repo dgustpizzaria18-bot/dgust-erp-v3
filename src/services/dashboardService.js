@@ -1,4 +1,5 @@
 import { supabase } from "./supabaseClient";
+import { STOCK_THRESHOLD_CRITICAL } from "../constants";
 
 export async function getDashboardKpis() {
   // total de produtos
@@ -12,11 +13,11 @@ export async function getDashboardKpis() {
     .select("*", { count: "exact", head: true })
     .eq("ativo", true);
 
-  // estoque baixo (ex: <= 5)
+  // estoque baixo (threshold configurável)
   const { count: estoqueBaixo } = await supabase
     .from("produtos")
     .select("*", { count: "exact", head: true })
-    .lte("estoque_atual", 5);
+    .lte("estoque_atual", STOCK_THRESHOLD_CRITICAL);
 
   // total de fornecedores
   const { count: totalFornecedores } = await supabase

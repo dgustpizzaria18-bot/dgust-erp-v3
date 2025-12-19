@@ -6,6 +6,7 @@ import MovimentacaoEstoqueChart from "../components/MovimentacaoEstoqueChart";
 import { getDashboardKpis } from "../services/dashboardService";
 import { getProdutosPorCategoria, getProdutosAtivosInativos } from "../services/dashboardChartsService";
 import { getMovimentacaoEstoque } from "../services/estoqueChartsService";
+import { STOCK_THRESHOLD_CRITICAL } from "../constants";
 
 export default function Dashboard() {
   const [kpis, setKpis] = useState({
@@ -71,7 +72,7 @@ export default function Dashboard() {
         <KpiCard 
           title="Estoque Baixo" 
           value={kpis.estoqueBaixo}
-          subtitle="≤ 5 unidades"
+          subtitle={`≤ ${STOCK_THRESHOLD_CRITICAL} unidades`}
         />
         <KpiCard 
           title="Fornecedores" 

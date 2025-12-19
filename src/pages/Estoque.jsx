@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { listarProdutos } from "../services/produtosService";
+import { STOCK_THRESHOLD_CRITICAL, STOCK_THRESHOLD_LOW } from "../constants";
 
 export default function Estoque() {
   const [produtos, setProdutos] = useState([]);
@@ -55,9 +56,9 @@ export default function Estoque() {
                 <td className="px-6 py-4 whitespace-nowrap">
                   <span
                     className={`${
-                      produto.estoque_atual <= 5
+                      produto.estoque_atual <= STOCK_THRESHOLD_CRITICAL
                         ? "text-red-600 font-semibold"
-                        : produto.estoque_atual <= 10
+                        : produto.estoque_atual <= STOCK_THRESHOLD_LOW
                         ? "text-yellow-600 font-semibold"
                         : "text-green-600"
                     }`}
@@ -66,11 +67,11 @@ export default function Estoque() {
                   </span>
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
-                  {produto.estoque_atual <= 5 ? (
+                  {produto.estoque_atual <= STOCK_THRESHOLD_CRITICAL ? (
                     <span className="px-2 py-1 text-xs rounded bg-red-100 text-red-800">
                       Estoque Baixo
                     </span>
-                  ) : produto.estoque_atual <= 10 ? (
+                  ) : produto.estoque_atual <= STOCK_THRESHOLD_LOW ? (
                     <span className="px-2 py-1 text-xs rounded bg-yellow-100 text-yellow-800">
                       Atenção
                     </span>
