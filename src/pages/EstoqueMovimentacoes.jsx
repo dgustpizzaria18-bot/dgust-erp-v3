@@ -2,8 +2,10 @@ import React, { useEffect, useState } from "react";
 import { supabase } from "../services/supabaseClient";
 import { listarProdutos } from "../services/produtosService";
 import { movimentarEstoque } from "../services/estoqueService";
+import { useToast } from "../components/Toast";
 
 export default function EstoqueMovimentacoes() {
+  const { addToast } = useToast();
   const [movimentacoes, setMovimentacoes] = useState([]);
   const [produtos, setProdutos] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -57,6 +59,7 @@ export default function EstoqueMovimentacoes() {
     e.preventDefault();
     try {
       await movimentarEstoque(formData);
+      addToast("Movimentação registrada com sucesso!", "success");
       setShowModal(false);
       setFormData({
         produto_id: "",
@@ -67,7 +70,7 @@ export default function EstoqueMovimentacoes() {
       loadData();
     } catch (error) {
       console.error("Erro ao movimentar estoque:", error);
-      alert("Erro ao movimentar estoque");
+      addToast("Erro ao movimentar estoque", "error");
     }
   }
 

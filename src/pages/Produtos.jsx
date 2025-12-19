@@ -5,6 +5,7 @@ import {
   atualizarProduto,
   toggleProduto,
 } from "../services/produtosService";
+import { useToast } from "../components/Toast";
 
 export default function Produtos() {
   const [produtos, setProdutos] = useState([]);
@@ -17,6 +18,7 @@ export default function Produtos() {
     preco_venda: 0,
     ativo: true,
   });
+  const { addToast } = useToast();
 
   useEffect(() => {
     loadProdutos();
@@ -29,7 +31,7 @@ export default function Produtos() {
       setProdutos(data);
     } catch (error) {
       console.error("Erro ao carregar produtos:", error);
-      alert("Erro ao carregar produtos");
+      addToast("Erro ao carregar produtos", "error");
     } finally {
       setLoading(false);
     }
@@ -66,24 +68,27 @@ export default function Produtos() {
     try {
       if (editingProduto) {
         await atualizarProduto(editingProduto.id, formData);
+        addToast("Produto atualizado com sucesso!", "success");
       } else {
         await criarProduto(formData);
+        addToast("Produto criado com sucesso!", "success");
       }
       closeModal();
       loadProdutos();
     } catch (error) {
       console.error("Erro ao salvar produto:", error);
-      alert("Erro ao salvar produto");
+      addToast("Erro ao salvar produto", "error");
     }
   }
 
   async function handleToggle(id, ativo) {
     try {
       await toggleProduto(id, !ativo);
+      addToast(`Produto ${!ativo ? "ativado" : "desativado"} com sucesso!`, "success");
       loadProdutos();
     } catch (error) {
       console.error("Erro ao atualizar produto:", error);
-      alert("Erro ao atualizar produto");
+      addToast("Erro ao atualizar produto", "error");
     }
   }
 
