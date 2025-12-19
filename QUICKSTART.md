@@ -1,4 +1,4 @@
-# 🚀 Quick Start Guide - D3
+# 🚀 Quick Start Guide - D'GUST ERP
 
 ## Pré-requisitos
 

@@ -1,6 +1,8 @@
-# D3
+# D'GUST ERP
 
 Sistema de ERP (Enterprise Resource Planning) completo para gestão empresarial, desenvolvido com React, Vite, Tailwind CSS e Supabase.
+
+**Nome do projeto (package):** d3
 
 ## 🚀 Funcionalidades
 
@@ -211,4 +213,4 @@ Este é um projeto em desenvolvimento ativo. Para contribuir:
 
 ## 📄 Licença
 
-Projeto privado - D3
+Projeto privado - D'GUST ERP

@@ -1,7 +1,9 @@
-# D3 - Implementation Summary
+# D'GUST ERP - Implementation Summary
 
 ## Overview
-Successfully implemented the core features of D3, a comprehensive Enterprise Resource Planning system designed for business management, with focus on inventory control, products, financial management, reports, and security.
+Successfully implemented the core features of D'GUST ERP, a comprehensive Enterprise Resource Planning system designed for business management, with focus on inventory control, products, financial management, reports, and security.
+
+**Nome do projeto (package):** d3
 
 ## ✅ Completed Features
 

@@ -36,7 +36,7 @@ export default function Login() {
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <div className="bg-white p-8 rounded shadow w-96">
         <h1 className="text-xl font-bold mb-6 text-center">
-          LOGIN D3
+          LOGIN D'GUST ERP
         </h1>
 
         <input
