@@ -9,9 +9,10 @@
 - ✅ Automatic token refresh
 
 ### Environment Variables
-- ✅ Support for environment variables (VITE_SUPABASE_URL, VITE_SUPABASE_ANON_KEY)
+- ✅ Required environment variables (VITE_SUPABASE_URL, VITE_SUPABASE_ANON_KEY)
 - ✅ .env.example provided for reference
-- ⚠️ Default fallback values exist for development (should be removed in production)
+- ✅ Application throws error if environment variables are not configured
+- ✅ .env file properly excluded from git via .gitignore
 
 ### Supabase Security
 - 🔨 **TODO**: Implement Row Level Security (RLS) policies
@@ -23,9 +24,10 @@
 ### Before Production Deployment
 
 1. **Environment Variables**
-   - Remove default fallback values in `src/services/supabaseClient.js`
-   - Set environment variables in your hosting platform (Vercel, Netlify, etc.)
-   - Never commit `.env` files to git
+   - ✅ Environment variables are now required (no fallback values)
+   - Create a `.env` file from `.env.example` with your Supabase credentials
+   - For production: Set environment variables in your hosting platform (Vercel, Netlify, etc.)
+   - Never commit `.env` files to git (already configured in .gitignore)
 
 2. **Supabase Configuration**
    - Enable Row Level Security (RLS) on all tables

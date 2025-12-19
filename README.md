@@ -53,6 +53,30 @@ Sistema de ERP (Enterprise Resource Planning) completo para gestão empresarial,
 
 ## 📦 Instalação
 
+### 1. Configurar Variáveis de Ambiente
+
+Antes de executar o projeto, você precisa configurar as variáveis de ambiente do Supabase:
+
+```bash
+# Copiar o arquivo de exemplo
+cp .env.example .env
+```
+
+Edite o arquivo `.env` e adicione suas credenciais do Supabase:
+
+```env
+VITE_SUPABASE_URL=https://seu-projeto.supabase.co
+VITE_SUPABASE_ANON_KEY=sua-chave-anonima
+```
+
+**Onde encontrar as credenciais:**
+1. Acesse seu projeto no [Supabase Dashboard](https://app.supabase.com)
+2. Vá em Settings > API
+3. Copie a "Project URL" para `VITE_SUPABASE_URL`
+4. Copie a "anon public" key para `VITE_SUPABASE_ANON_KEY`
+
+### 2. Instalar Dependências e Executar
+
 ```bash
 # Instalar dependências
 npm install
