@@ -1,4 +1,4 @@
-# 🚀 Quick Start Guide - D'GUST ERP v3
+# 🚀 Quick Start Guide - D3
 
 ## Pré-requisitos
 
@@ -32,7 +32,7 @@
 
 ```bash
 git clone <url-do-repositorio>
-cd dgust-erp-v3
+cd d3
 ```
 
 ### Configurar Variáveis de Ambiente

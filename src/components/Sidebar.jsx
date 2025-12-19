@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 export default function Sidebar() {
   return (
     <aside className="w-64 bg-zinc-900 text-white p-6 overflow-y-auto">
-      <h2 className="text-xl font-bold mb-8">D'GUST ERP</h2>
+      <h2 className="text-xl font-bold mb-8">D3</h2>
 
       <nav className="space-y-6">
         {/* Dashboard */}
