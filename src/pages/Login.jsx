@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { supabase } from "../services/supabaseClient";
 import { useAuth } from "../app/AuthContext";
 import { useNavigate } from "react-router-dom";
+import { useToast } from "../components/Toast";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -10,6 +11,7 @@ export default function Login() {
 
   const { user } = useAuth();
   const navigate = useNavigate();
+  const { addToast } = useToast();
 
   useEffect(() => {
     if (user) navigate("/dashboard", { replace: true });
@@ -25,7 +27,9 @@ export default function Login() {
 
     setLoading(false);
 
-    if (error) alert("Email ou senha inválidos");
+    if (error) {
+      addToast("Email ou senha inválidos", "error");
+    }
   }
 
   return (
