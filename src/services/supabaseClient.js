@@ -10,4 +10,20 @@ if (!supabaseUrl || !supabaseKey) {
   );
 }
 
-export const supabase = createClient(supabaseUrl, supabaseKey);
+// Create Supabase client with error handling
+export const supabase = createClient(supabaseUrl, supabaseKey, {
+  auth: {
+    autoRefreshToken: true,
+    persistSession: true,
+    detectSessionInUrl: false
+  }
+});
+
+// Test connection using a real table instead of _test
+supabase.from('produtos').select('count', { count: 'exact', head: true })
+  .then(() => console.log('✅ Supabase connected successfully'))
+  .catch((error) => {
+    console.error('⚠️ Supabase connection issue:', error.message);
+    console.log('Please check if your Supabase project is active at:', supabaseUrl);
+  });
+

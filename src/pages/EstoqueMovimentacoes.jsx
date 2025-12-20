@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { supabase } from "../services/supabaseClient";
 import { listarProdutos } from "../services/produtosService";
 import { movimentarEstoque } from "../services/estoqueService";
-import { useToast } from "../components/Toast";
+import { useToast } from "../components/ToastNotifications";
 
 export default function EstoqueMovimentacoes() {
   const { addToast } = useToast();

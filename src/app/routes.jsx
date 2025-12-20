@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import Login from "../pages/Login";
 import Dashboard from "../pages/Dashboard";
 import Produtos from "../pages/Produtos";
+import Categorias from "../pages/Categorias";
 import Clientes from "../pages/Clientes";
 import Pedidos from "../pages/Pedidos";
 import Estoque from "../pages/Estoque";
@@ -25,6 +26,7 @@ export default function AppRoutes() {
         <Route element={<DashboardLayout />}>
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/produtos" element={<Produtos />} />
+          <Route path="/categorias" element={<Categorias />} />
           <Route path="/clientes" element={<Clientes />} />
           <Route path="/pedidos" element={<Pedidos />} />
           <Route path="/estoque" element={<Estoque />} />

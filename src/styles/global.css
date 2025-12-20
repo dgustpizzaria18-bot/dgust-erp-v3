@@ -8,6 +8,7 @@ body {
   background: #f4f6f8;
 }
 
+/* ==================== LOGIN ==================== */
 .login-container {
   min-height: 100vh;
   display: flex;
@@ -63,3 +64,159 @@ body {
   color: #dc2626;
   font-size: 14px;
 }
+
+/* ==================== SKELETON LOADING ==================== */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    #f0f0f0 0%,
+    #e0e0e0 20%,
+    #f0f0f0 40%,
+    #f0f0f0 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite linear;
+  border-radius: 4px;
+}
+
+.skeleton-text {
+  height: 16px;
+  margin-bottom: 8px;
+}
+
+.skeleton-title {
+  height: 24px;
+  width: 60%;
+  margin-bottom: 12px;
+}
+
+.skeleton-row {
+  height: 48px;
+  margin-bottom: 4px;
+}
+
+.skeleton-card {
+  height: 120px;
+  margin-bottom: 16px;
+}
+
+/* ==================== ANIMATIONS ==================== */
+
+/* Fade In (padrão para conteúdo) */
+.fade-in {
+  animation: fadeIn 300ms ease-out;
+}
+
+/* Hover suave em linhas de tabela */
+.table-row-hover {
+  transition: background-color 200ms ease-in-out, transform 150ms ease-in-out;
+}
+
+.table-row-hover:hover {
+  background-color: rgba(59, 130, 246, 0.05);
+  transform: translateX(2px);
+}
+
+/* Modal overlay */
+.modal-overlay {
+  animation: fadeIn 200ms ease-out;
+}
+
+.modal-content {
+  animation: scaleIn 300ms ease-out;
+}
+
+/* Toast (compatibilidade) */
+.animate-slide-in {
+  animation: slideInUp 300ms ease-out;
+}
+
+/* Spinner (botões) */
+.spinner {
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top: 2px solid #ffffff;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  animation: spin 0.6s linear infinite;
+}
+
+/* Pulse crítico */
+.pulse-critical {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* ==================== UTILITIES ==================== */
+
+/* Transições padrão */
+.transition-smooth {
+  transition: all 200ms ease-in-out;
+}
+
+/* Scroll customizado */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* ==================== KEYFRAMES ==================== */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
